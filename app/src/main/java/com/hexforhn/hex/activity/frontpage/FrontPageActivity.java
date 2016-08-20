@@ -14,12 +14,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.hexforhn.hex.HexApplication;
 import com.hexforhn.hex.R;
 import com.hexforhn.hex.activity.story.StoryActivity;
 import com.hexforhn.hex.adapter.FrontPageListAdapter;
-import com.hexforhn.hex.asynctask.StoriesHandler;
 import com.hexforhn.hex.asynctask.GetTopStories;
+import com.hexforhn.hex.asynctask.StoriesHandler;
 import com.hexforhn.hex.decoration.DividerItemDecoration;
 import com.hexforhn.hex.listener.ClickListener;
 import com.hexforhn.hex.model.Story;
@@ -41,6 +43,7 @@ public class FrontPageActivity extends AppCompatActivity implements StoriesHandl
     private SwipeRefreshManager mSwipeRefreshManager;
     private final static String STORY_TITLE_INTENT_EXTRA_NAME = "storyTitle";
     private final static String STORY_ID_INTENT_EXTRA_NAME = "storyId";
+    private final static String STORIES_KEY = "stories";
     private GetTopStories mGetTopStories;
     private FrontPageState mState;
 
@@ -52,7 +55,7 @@ public class FrontPageActivity extends AppCompatActivity implements StoriesHandl
         setupRecyclerView();
         setupStoriesUnavailableView();
         setupRefreshLayout();
-        setupState();
+        setupState(savedInstanceState);
     }
 
     @Override
@@ -111,6 +114,25 @@ public class FrontPageActivity extends AppCompatActivity implements StoriesHandl
         mState.sendEvent(FrontPageState.Event.LOAD_REQUESTED);
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString(STORIES_KEY, new Gson().toJson(mStories));
+    }
+
+    private List<Story> extractStories(Bundle savedInstanceState) {
+        if (savedInstanceState == null) { return null; }
+
+        List<Story> stories = null;
+        String serializedStories = savedInstanceState.getString(STORIES_KEY);
+
+        if (serializedStories != null) {
+            stories = new Gson().fromJson(serializedStories,
+                    new TypeToken<ArrayList<Story>>() {}.getType());
+        }
+
+        return stories;
+    }
+
     private void setupToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -149,9 +171,16 @@ public class FrontPageActivity extends AppCompatActivity implements StoriesHandl
         });
     }
 
-    private void setupState() {
+    private void setupState(Bundle savedInstanceState) {
+        List<Story> stories = extractStories(savedInstanceState);
         mState = new FrontPageState(this);
-        mState.sendEvent(FrontPageState.Event.LOAD_REQUESTED);
+
+        if (stories != null) {
+            mStories = stories;
+            mState.sendEvent(FrontPageState.Event.RESTORED);
+        } else {
+            mState.sendEvent(FrontPageState.Event.LOAD_REQUESTED);
+        }
     }
 
     private void displayStories(List<Story> stories) {

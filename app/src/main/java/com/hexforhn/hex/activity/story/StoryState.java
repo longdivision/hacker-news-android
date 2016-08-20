@@ -8,7 +8,7 @@ public class StoryState implements StateMachineHandler<StoryState.State> {
         INACTIVE, LOADING, LOADED, UNAVAILABLE
     }
     public enum Event {
-        LOAD_REQUESTED, LOAD_SUCCEEDED, LOAD_FAILED
+        RESTORED, LOAD_REQUESTED, LOAD_SUCCEEDED, LOAD_FAILED
     }
 
     private StoryStateHandler mHandler;
@@ -17,6 +17,7 @@ public class StoryState implements StateMachineHandler<StoryState.State> {
     public StoryState(StoryStateHandler handler) {
         mHandler = handler;
         mStateMachine = new StateMachine<>(this, State.INACTIVE);
+        mStateMachine.addTransition(Event.RESTORED, State.INACTIVE, State.LOADED);
         mStateMachine.addTransition(Event.LOAD_REQUESTED, State.INACTIVE, State.LOADING);
         mStateMachine.addTransition(Event.LOAD_REQUESTED, State.UNAVAILABLE, State.LOADING);
         mStateMachine.addTransition(Event.LOAD_REQUESTED, State.LOADED, State.LOADING);

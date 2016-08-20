@@ -45,23 +45,11 @@ public class StoryActivity extends AppCompatActivity implements ViewPager.OnPage
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_story);
-
         setupToolbar();
-
-        mTabLayout = (TabLayout) findViewById(R.id.tabs);
         setupTabs();
-
-        mPager = (ViewPager) findViewById(R.id.pager);
-        mPagerAdapter = new StorySlidePagerAdapter(getSupportFragmentManager());
-        mPager.setAdapter(mPagerAdapter);
-        mPager.addOnPageChangeListener(this);
-
-        mPage = Page.WEBVIEW;
-
-        mState = new StoryState(this);
-        mState.sendEvent(StoryState.Event.LOAD_REQUESTED);
+        setupPaging();
+        setupState();
     }
 
     @Override
@@ -134,6 +122,19 @@ public class StoryActivity extends AppCompatActivity implements ViewPager.OnPage
         mState.sendEvent(StoryState.Event.LOAD_REQUESTED);
     }
 
+    private void setupPaging() {
+        mPager = (ViewPager) findViewById(R.id.pager);
+        mPagerAdapter = new StorySlidePagerAdapter(getSupportFragmentManager());
+        mPager.setAdapter(mPagerAdapter);
+        mPager.addOnPageChangeListener(this);
+        mPage = Page.WEBVIEW;
+    }
+
+    private void setupState() {
+        mState = new StoryState(this);
+        mState.sendEvent(StoryState.Event.LOAD_REQUESTED);
+    }
+
     private void provideCommentsToCommentFragment(List<Comment> comments) {
         List<CommentViewModel> viewComments = new ArrayList<>();
 
@@ -180,6 +181,8 @@ public class StoryActivity extends AppCompatActivity implements ViewPager.OnPage
     }
 
     private void setupTabs() {
+        mTabLayout = (TabLayout) findViewById(R.id.tabs);
+
         mTabLayout.addTab(mTabLayout.newTab().setText("Article"));
         mTabLayout.addTab(mTabLayout.newTab().setText("Comments"));
         mTabLayout.setOnTabSelectedListener(this);

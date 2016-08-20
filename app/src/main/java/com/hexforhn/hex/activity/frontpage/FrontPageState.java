@@ -8,7 +8,7 @@ public class FrontPageState implements StateMachineHandler<FrontPageState.State>
         INACTIVE, LOADING, LOADED, REFRESHING, NETWORK_UNAVAILABLE
     }
     public enum Event {
-        LOAD_REQUESTED, LOAD_SUCCEEDED, LOAD_FAILED
+        RESTORED, LOAD_REQUESTED, LOAD_SUCCEEDED, LOAD_FAILED
     }
 
     private FrontPageStateHandler mHandler;
@@ -17,6 +17,7 @@ public class FrontPageState implements StateMachineHandler<FrontPageState.State>
     public FrontPageState(FrontPageStateHandler handler) {
         mHandler = handler;
         mStateMachine = new StateMachine<>(this, State.INACTIVE);
+        mStateMachine.addTransition(Event.RESTORED, State.INACTIVE, State.LOADED);
         mStateMachine.addTransition(Event.LOAD_REQUESTED, State.INACTIVE, State.LOADING);
         mStateMachine.addTransition(Event.LOAD_REQUESTED, State.NETWORK_UNAVAILABLE, State.LOADING);
         mStateMachine.addTransition(Event.LOAD_REQUESTED, State.LOADED, State.REFRESHING);

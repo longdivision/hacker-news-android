@@ -17,7 +17,8 @@
         </activity>
         <activity
             android:name=".activity.story.StoryActivity"
-            android:label="" >
+            android:label=""
+            android:configChanges="orientation|screenSize">
             <intent-filter android:label="@string/appName">
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>

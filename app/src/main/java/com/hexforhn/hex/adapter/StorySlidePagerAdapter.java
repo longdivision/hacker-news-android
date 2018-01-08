@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import com.hexforhn.hex.fragment.article.ArticleFragment;
-import com.hexforhn.hex.fragment.comments.CommentsFragment;
+import com.hexforhn.hex.fragment.ArticleFragment;
+import com.hexforhn.hex.fragment.CommentsFragment;
 
 import java.util.ArrayList;
 

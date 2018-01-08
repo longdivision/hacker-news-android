@@ -3,10 +3,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application android:allowBackup="true" android:label="@string/appName"
-        android:icon="@mipmap/ic_launcher" android:theme="@style/AppTheme"
+        android:icon="@mipmap/ic_launcher" android:theme="@style/AppThemeLight"
         android:name="com.hexforhn.hex.HexApplication">
         <activity
-            android:name=".activity.ListActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/appName"
             android:launchMode="singleTask"
             android:alwaysRetainTaskState="true">
@@ -28,6 +28,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.AboutActivity"/>
+            android:name=".activity.SettingsActivity"
+            android:parentActivityName=".activity.MainActivity"/>
+        <activity
+            android:name=".activity.AboutActivity"
+            android:parentActivityName=".activity.MainActivity"/>
     </application>
 </manifest>

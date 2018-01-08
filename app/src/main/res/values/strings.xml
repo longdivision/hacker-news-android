@@ -6,6 +6,7 @@
     <string name="showTitle">Show</string>
     <string name="jobsTitle">Jobs</string>
     <string name="aboutTitle">About</string>
+    <string name="settingsTitle">Settings</string>
     <string name="articleTabTitle">Article</string>
     <string name="commentTabTitle">Comments</string>
     <string name="shareComments">Share Comments</string>
@@ -22,4 +23,7 @@
     <string name="aboutText">Hex is built to be fun, fast and pleasurable to use.\n\nHex is open source and available on <a href="https://github.com/longdivision/hex">GitHub</a>. Hex is powered by <a href="https://github.com/longdivision/hex-api">Hex API</a>.</string>
     <string name="feedbackText">If you come across any issues or have any feature requests they are most welcome <a href="https://github.com/longdivision/hex/issues">here</a>.</string>
     <string name="contributingText">Contributions are always welcome. For more information please see the <a href="https://github.com/longdivision/hex/blob/master/CONTRIBUTING.md">Contribution Guidelines.</a></string>
+    <string name="enableDarkThemeSettingTitle">Use Dark Theme</string>
+    <string name="enableDarkThemeSettingKey">enableDarkTheme</string>
+    <string name="enableDarkThemeSettingSummary">Switch to a dark theme for browsing and reading.</string>
 </resources>

@@ -1,17 +1,44 @@
 <resources>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppThemeLight" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="themeName">AppThemeLight</item>
         <item name="android:colorPrimary">@color/primary</item>
         <item name="android:colorPrimaryDark">@color/primaryDark</item>
         <item name="android:textColor">@color/text</item>
+        <item name="android:textColorSecondary">@color/textSecondary</item>
         <item name="android:windowActionModeOverlay">false</item>
+        <item name="listDividerColor">@color/listDivider</item>
+        <item name="listingTitleTextColor">@color/listingTitleText</item>
+        <item name="appBarTextColor">@color/appBarTextColor</item>
+        <item name="hiddenCommentCountTextColor">@color/hiddenCommentCountTextColor</item>
+        <!-- App Bar -->
+        <item name="colorPrimary">@color/primary</item>
+        <!-- Material Drawer -->
+    </style>
+    <style name="AppThemeDark" parent="AppThemeLight">
+        <item name="themeName">AppThemeDark</item>
+        <item name="android:windowBackground">@color/windowBackgroundDarkTheme</item>
+        <item name="android:colorPrimary">@color/primaryDarkTheme</item>
+        <item name="android:colorPrimaryDark">@color/primaryDarkDarkTheme</item>
+        <item name="android:textColor">@color/textDarkTheme</item>
+        <item name="android:textColorSecondary">@color/textSecondaryDark</item>
+        <item name="listDividerColor">@color/listDividerDarkTheme</item>
+        <item name="listingTitleTextColor">@color/listingTitleTextDarkTheme</item>
+        <item name="appBarTextColor">@color/appBarTextColorDarkTheme</item>
+        <!-- App Bar -->
+        <item name="colorPrimary">@color/primaryDarkTheme</item>
+        <!-- Material Drawer -->
+        <item name="material_drawer_background">@color/windowBackgroundDarkTheme</item>
+        <item name="material_drawer_primary_text">@color/textDarkTheme</item>
+        <item name="material_drawer_primary_icon">@color/textSecondaryDark</item>
+        <item name="material_drawer_divider">@color/listDividerDarkTheme</item>
+        <item name="material_drawer_selected">@color/drawerSelected</item>
+        <item name="material_drawer_selected_text">@color/drawerSelectedTextDark</item>
+        <item name="material_drawer_secondary_text">@color/drawerSecondaryTextDark</item>
     </style>
     <style name="TitleText">
         <item name="android:textSize">18sp</item>
     </style>
     <style name="UrlText">
         <item name="android:textSize">16sp</item>
-    </style>
-    <style name="LineDivider">
-        <item name="android:color">@color/listDividerColor</item>
     </style>
 </resources>

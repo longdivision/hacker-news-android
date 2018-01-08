@@ -9,7 +9,7 @@
         android:layout_height="match_parent"
         android:id="@+id/item_wrapper"
         android:orientation="vertical"
-        android:background="@color/primaryDark"
+        android:background="?android:colorPrimaryDark"
         android:gravity="center"
         android:padding="13dp">
             <ImageView

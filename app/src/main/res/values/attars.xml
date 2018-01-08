@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="themeName" format="string" />
+    <attr name="listDividerColor" format="reference" />
+    <attr name="listingTitleTextColor" format="reference" />
+    <attr name="appBarTextColor" format="reference" />
+    <attr name="hiddenCommentCountTextColor" format="reference" />
+</resources>

@@ -10,14 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import java.util.List;
-
 import com.hexforhn.hex.R;
 import com.hexforhn.hex.adapter.helper.CommentListManager;
 import com.hexforhn.hex.adapter.helper.TextHelper;
 import com.hexforhn.hex.listener.ClickListener;
 import com.hexforhn.hex.viewmodel.CommentViewModel;
+
+import java.util.List;
 
 
 public class CommentListAdapter extends RecyclerView.Adapter<ViewHolder> implements ClickListener {
@@ -64,7 +63,7 @@ public class CommentListAdapter extends RecyclerView.Adapter<ViewHolder> impleme
         TextView relativeTimeView = (TextView) commentView.findViewById(R.id.relativeTime);
         final TextView textView = (TextView) commentView.findViewById(R.id.text);
         LinearLayout indentView = (LinearLayout) commentView.findViewById(R.id.indent);
-        View childCommentsHidden = commentView.findViewById(R.id.childCommentsHidden);
+        View childCommentsHidden = commentView.findViewById(R.id.hiddenChildCommentsMarker);
 
         usernameView.setText(comment.getUser());
         relativeTimeView.setText(comment.getRelativeTime());
@@ -125,7 +124,7 @@ public class CommentListAdapter extends RecyclerView.Adapter<ViewHolder> impleme
                 TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, indentSize, metrics));
         indentView.getLayoutParams().width = indentSizeScaledForDisplay;
 
-        int[] indentColors = mContext.getResources().getIntArray(R.array.commentColors);
+        int[] indentColors = mContext.getResources().getIntArray(R.array.comment);
         int indentColor = indentColors[depth % indentColors.length];
         indentBarView.setBackgroundColor(indentColor);
 

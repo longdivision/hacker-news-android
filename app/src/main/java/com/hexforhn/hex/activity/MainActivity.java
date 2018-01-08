@@ -9,15 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import com.hexforhn.hex.R;
 import com.hexforhn.hex.drawer.HexDrawer;
-import com.hexforhn.hex.fragment.storylist.StoryListFragment;
+import com.hexforhn.hex.fragment.StoryListFragment;
+import com.hexforhn.hex.util.ThemeHelper;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.hexforhn.hex.drawer.HexDrawer.Item.About;
-import static com.hexforhn.hex.drawer.HexDrawer.Item.FrontPage;
+import static com.hexforhn.hex.drawer.HexDrawer.Item.*;
 
-public class ListActivity extends AppCompatActivity implements HexDrawer.ItemSelectionHandler, FragmentManager.OnBackStackChangedListener {
+public class MainActivity extends AppCompatActivity implements HexDrawer.ItemSelectionHandler, FragmentManager.OnBackStackChangedListener {
 
     private static final String ITEM_KEY = "Item";
     private HexDrawer.Item mCurrentItem;
@@ -28,6 +28,7 @@ public class ListActivity extends AppCompatActivity implements HexDrawer.ItemSel
         put(HexDrawer.Item.Ask, R.string.askTitle);
         put(HexDrawer.Item.Show, R.string.showTitle);
         put(HexDrawer.Item.Jobs, R.string.jobsTitle);
+        put(HexDrawer.Item.Settings, R.string.settingsTitle);
         put(HexDrawer.Item.About, R.string.aboutTitle);
     }};
 
@@ -44,7 +45,8 @@ public class ListActivity extends AppCompatActivity implements HexDrawer.ItemSel
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_story_list);
+        ThemeHelper.applyTheme(this);
+        setContentView(R.layout.activity_main);
         Toolbar toolbar = setupToolbar();
 
         getFragmentManager().addOnBackStackChangedListener(this);
@@ -59,7 +61,7 @@ public class ListActivity extends AppCompatActivity implements HexDrawer.ItemSel
         mDrawer.build();
 
         Bundle bundle = new Bundle();
-        bundle.putString(com.hexforhn.hex.fragment.storylist.StoryListFragment.CollectionKey, itemToCollection.get(mCurrentItem).toString());
+        bundle.putString(StoryListFragment.CollectionKey, itemToCollection.get(mCurrentItem).toString());
         StoryListFragment storyListFragment = new StoryListFragment();
         storyListFragment.setArguments(bundle);
 
@@ -73,14 +75,24 @@ public class ListActivity extends AppCompatActivity implements HexDrawer.ItemSel
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        ThemeHelper.updateTheme(this);
+        mDrawer.selectItem(mCurrentItem);
+    }
+
+    @Override
     public void onItemSelectedHandler(HexDrawer.Item item) {
         String collection = "";
 
         switch (item) {
+            case Settings:
+                Intent settingsIntent = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(settingsIntent);
+                break;
             case About:
-                mCurrentItem = About;
-                Intent newIntent = new Intent(getApplicationContext(), AboutActivity.class);
-                startActivity(newIntent);
+                Intent aboutIntent = new Intent(getApplicationContext(), AboutActivity.class);
+                startActivity(aboutIntent);
                 break;
             default:
                 mCurrentItem = item;

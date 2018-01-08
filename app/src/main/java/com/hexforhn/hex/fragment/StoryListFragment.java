@@ -1,4 +1,4 @@
-package com.hexforhn.hex.fragment.storylist;
+package com.hexforhn.hex.fragment;
 
 import android.app.Fragment;
 import android.content.Intent;

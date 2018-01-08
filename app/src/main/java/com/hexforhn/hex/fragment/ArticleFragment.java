@@ -1,4 +1,4 @@
-package com.hexforhn.hex.fragment.article;
+package com.hexforhn.hex.fragment;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;

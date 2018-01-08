@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#E64A19</color>
-    <color name="primaryDark">#D84315</color>
-    <color name="text">#737373</color>
-    <color name="titleText">#212121</color>
     <color name="cyan">#00BCD4</color>
     <color name="blue">#2196F3</color>
     <color name="lightGreen">#8BC34A</color>
@@ -11,9 +7,16 @@
     <color name="lime">#CDDC39</color>
     <color name="yellow">#FFEB3B</color>
     <color name="indigo">#FFC107</color>
-    <color name="listDividerColor">#EEEEEE</color>
-    <color name="hiddenCommentsTag">#FF9E80</color>
-    <integer-array name="commentColors">
+    <!-- Light Theme -->
+    <color name="primary">#E64A19</color>
+    <color name="primaryDark">#D84315</color>
+    <color name="text">#DE000000</color> <!--DE for %87 opacity-->
+    <color name="textSecondary">#8A000000</color> <!--8A for %54 opacity-->
+    <color name="appBarTextColor">#FFFFFF</color>
+    <color name="listingTitleText">#212121</color>
+    <color name="listDivider">#E7E7E7</color>
+    <color name="hiddenCommentCountTextColor">#FFFFFF</color>
+    <integer-array name="comment">
         <item>@color/cyan</item>
         <item>@color/blue</item>
         <item>@color/lightGreen</item>
@@ -22,4 +25,17 @@
         <item>@color/yellow</item>
         <item>@color/indigo</item>
     </integer-array>
+    <!-- Dark Theme-->
+    <color name="primaryDarkTheme">#000000</color>
+    <color name="primaryDarkDarkTheme">#212121</color>
+    <color name="textDarkTheme">#FFFFFF</color>
+    <color name="textSecondaryDark">#B2FFFFFF</color> <!--B2 for %70 opacity-->
+    <color name="appBarTextColorDarkTheme">#FFFFFF</color>
+    <color name="listingTitleTextDarkTheme">#FFFFFF</color>
+    <color name="listDividerDarkTheme">#424242</color>
+    <color name="hiddenCommentsTagDarkTheme">#FF9E80</color>
+    <color name="windowBackgroundDarkTheme">@color/md_dark_background</color>
+    <color name="drawerSelected">#000000</color>
+    <color name="drawerSelectedTextDark">#FFFFFF</color>
+    <color name="drawerSecondaryTextDark">#FFFFFF</color>
 </resources>

@@ -21,21 +21,17 @@ import java.util.*;
 public class HexDrawer implements Drawer.OnDrawerItemClickListener{
 
     public enum Item {
-        FrontPage, New, Ask, Show, Jobs, About
+        FrontPage, New, Ask, Show, Jobs, About, Settings
     }
 
     private List<Item> primaryItemsOrder  = new ArrayList<>(Arrays.asList(Item.FrontPage, Item.New, Item.Ask, Item.Show, Item.Jobs));
 
-    private List<Item> secondaryItemsOrder = new ArrayList<>(Arrays.asList(Item.About));
+    private List<Item> secondaryItemsOrder = new ArrayList<>(Arrays.asList(Item.Settings, Item.About));
 
     private static class ItemDetails {
         int index;
         String title;
         int mIconResource;
-
-        public ItemDetails(int index) {
-            this.index = index;
-        }
 
         public ItemDetails(int index, String title, int mIconResource) {
             this.index = index;
@@ -51,11 +47,6 @@ public class HexDrawer implements Drawer.OnDrawerItemClickListener{
         put(Item.Show, (new ItemDetails(3, "Show",  R.drawable.group)));
         put(Item.Jobs, (new ItemDetails(4, "Jobs",  R.drawable.work)));
     }};
-
-    public static Map<Item, ItemDetails>  secondaryItems = new HashMap<Item, ItemDetails>(){{
-        put(Item.About, (new ItemDetails(0)));
-    }};
-
 
     Activity mActivity;
     Toolbar mToolbar;
@@ -93,8 +84,6 @@ public class HexDrawer implements Drawer.OnDrawerItemClickListener{
                 .withName(itemDetails.title)
                 .withIcon(itemDetails.mIconResource)
                 .withIconTintingEnabled(true)
-                .withIconColorRes(R.color.text)
-                .withSelectedIconColorRes(R.color.primary)
                 .withOnDrawerItemClickListener(this);
 
             builder.addDrawerItems(drawerItem);

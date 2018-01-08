@@ -37,6 +37,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/username"
                     android:textSize="14sp"
+                    android:textColor="?android:textColorSecondary"
                     android:lineSpacingMultiplier="1.1" />
                 <TextView
                     android:layout_width="4sp"
@@ -46,31 +47,32 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp"
+                    android:textColor="?android:textColorSecondary"/>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/childCommentsHidden"
+                android:id="@+id/hiddenChildCommentsMarker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:background="@drawable/tag"
-                android:backgroundTint="@color/primary"
+                android:backgroundTint="?android:colorPrimary"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp">
                 <TextView
                     android:id="@+id/childCommentCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp"
+                    android:textColor="?attr/hiddenCommentCountTextColor"/>
                 <LinearLayout
                     android:layout_marginTop="3dp"
                     android:layout_marginStart="2dp"
                     android:layout_width="14dp"
                     android:layout_height="14dp"
                     android:state_pressed="false"
-                    android:backgroundTint="@android:color/white"
-                    android:background="@drawable/comment"/>
+                    android:background="@drawable/comment"
+                    android:backgroundTint="?attr/hiddenCommentCountTextColor"/>
             </LinearLayout>
         </RelativeLayout>
         <TextView
@@ -78,7 +80,6 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="15sp"
-            android:textColor="@android:color/black"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:paddingBottom="16dp"
@@ -86,6 +87,6 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="1dp"
-            android:background="@color/listDividerColor"/>
+            android:background="?attr/listDividerColor"/>
     </LinearLayout>
 </LinearLayout>

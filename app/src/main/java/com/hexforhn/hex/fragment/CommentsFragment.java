@@ -1,4 +1,4 @@
-package com.hexforhn.hex.fragment.comments;
+package com.hexforhn.hex.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

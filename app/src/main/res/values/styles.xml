@@ -35,10 +35,4 @@
         <item name="material_drawer_selected_text">@color/drawerSelectedTextDark</item>
         <item name="material_drawer_secondary_text">@color/drawerSecondaryTextDark</item>
     </style>
-    <style name="TitleText">
-        <item name="android:textSize">18sp</item>
-    </style>
-    <style name="UrlText">
-        <item name="android:textSize">16sp</item>
-    </style>
 </resources>

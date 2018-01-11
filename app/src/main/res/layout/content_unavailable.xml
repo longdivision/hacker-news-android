@@ -12,7 +12,8 @@
         android:layout_marginTop="-60dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/cloud_off"
-        android:backgroundTint="@color/primaryDark"/>
+        android:backgroundTint="@color/primaryDark"
+        android:contentDescription="@null" />
     <TextView
         android:id="@+id/loading_failed_text"
         android:layout_width="wrap_content"

@@ -15,7 +15,6 @@
     <string name="noImageAvailable">No image available</string>
     <string name="articleFeatureImage">Article feature image</string>
     <string name="error.unableToLoadFrontPage">Unable to load the Front Page</string>
-    <string name="error.unableToLoadStory">Unable to load story</string>
     <string name="error.unableToLoadComments">Unable to load comments</string>
     <string name="error.unableToLoadArticle">Unable to load article</string>
     <string name="error.default.loadingFailed">Unable to load content</string>
@@ -26,4 +25,6 @@
     <string name="enableDarkThemeSettingTitle">Use Dark Theme</string>
     <string name="enableDarkThemeSettingKey">enableDarkTheme</string>
     <string name="enableDarkThemeSettingSummary">Switch to a dark theme for browsing and reading.</string>
+    <string name="feedback">Feedback</string>
+    <string name="contributing">Contributing</string>
 </resources>

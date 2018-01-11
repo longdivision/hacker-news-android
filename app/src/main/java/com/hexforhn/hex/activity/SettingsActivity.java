@@ -28,16 +28,13 @@ public class SettingsActivity extends AppCompatActivity {
         ThemeHelper.updateTheme(this);
     }
 
-    private Toolbar setupToolbar() {
+    private void setupToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle(R.string.settingsTitle);
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
-
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
-        return toolbar;
     }
 }

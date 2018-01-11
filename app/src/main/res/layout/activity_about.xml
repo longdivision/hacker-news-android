@@ -36,7 +36,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Feedback"
+            android:text="@string/feedback"
             android:textSize="20sp"
             android:layout_marginBottom="8dp"/>
         <TextView
@@ -48,7 +48,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Contributing"
+            android:text="@string/contributing"
             android:textSize="20sp"
             android:layout_marginBottom="8dp"/>
         <TextView

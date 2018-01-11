@@ -1,12 +1,12 @@
 package com.hexforhn.hex.adapter.helper;
 
+import com.hexforhn.hex.viewmodel.CommentViewModel;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hexforhn.hex.viewmodel.CommentViewModel;
-
 public class CommentListManager {
-    List<CommentViewModel> mComments;
+    private final List<CommentViewModel> mComments;
 
     public CommentListManager(List<CommentViewModel> comments) {
         mComments = comments;

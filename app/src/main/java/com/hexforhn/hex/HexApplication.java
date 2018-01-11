@@ -16,13 +16,11 @@ public class HexApplication extends Application {
 
     private RequestQueue mRequestQueue;
 
+    public final String apiBaseUrl = "https://hex-api.herokuapp.com";
+
     public void onCreate() {
         super.onCreate();
         setupAnalytics();
-    }
-
-    public String getApiBaseUrl() {
-        return "https://hex-api.herokuapp.com";
     }
 
     public RequestQueue getRequestQueue() {

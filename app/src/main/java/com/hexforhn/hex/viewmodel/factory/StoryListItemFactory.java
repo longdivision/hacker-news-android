@@ -1,12 +1,11 @@
 package com.hexforhn.hex.viewmodel.factory;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import com.hexforhn.hex.model.Item;
 import com.hexforhn.hex.model.Story;
 import com.hexforhn.hex.viewmodel.StoryListItemViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class StoryListItemFactory {
 
@@ -17,11 +16,7 @@ public class StoryListItemFactory {
             return itemListItems;
         }
 
-        Iterator itemsIterator = items.iterator();
-
-        while (itemsIterator.hasNext()) {
-            Item item = (Item) itemsIterator.next();
-
+        for (Object item : items) {
             if (item instanceof Story) {
                 itemListItems.add(createItemListItemForStory((Story) item));
             }
@@ -30,7 +25,7 @@ public class StoryListItemFactory {
         return itemListItems;
     }
 
-    public static StoryListItemViewModel createItemListItemForStory(Story story) {
+    private static StoryListItemViewModel createItemListItemForStory(Story story) {
         return new StoryListItemViewModel(story.getTitle(), story.getDomain(),
                 story.getScore(), story.getCommentCount(), story.getDate());
     }

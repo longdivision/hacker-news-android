@@ -6,8 +6,8 @@ import android.view.View;
 import com.hexforhn.hex.listener.ClickListener;
 
 public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    public View mView;
-    public ClickListener clickListener;
+    public final View mView;
+    private ClickListener clickListener;
 
     public ViewHolder(View v) {
         super(v);

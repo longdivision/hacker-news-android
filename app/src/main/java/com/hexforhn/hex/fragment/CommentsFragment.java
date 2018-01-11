@@ -31,7 +31,7 @@ import java.util.concurrent.Callable;
 public class CommentsFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
-    Single mGetStory;
+    private Single mGetStory;
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
@@ -57,12 +57,12 @@ public class CommentsFragment extends Fragment {
         return rootView;
     }
 
-    public Single getStory() {
+    private Single getStory() {
         return Single.fromCallable(new Callable<Story>() {
             @Override
             public Story call() {
                 HexApplication application = (HexApplication) getActivity().getApplication();
-                StoryService service = new StoryService(application.getRequestQueue(), application.getApiBaseUrl());
+                StoryService service = new StoryService(application.getRequestQueue(), application.apiBaseUrl);
                 return service.getStory(getStoryId());
             }
 
@@ -110,7 +110,7 @@ public class CommentsFragment extends Fragment {
         };
     }
 
-    public String getStoryId() {
+    private String getStoryId() {
         return this.getArguments().getString("STORY_ID");
     }
 

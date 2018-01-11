@@ -11,5 +11,5 @@ public interface ClickListener {
      * @param position of the clicked item
      * @param isLongClick true if long click, false otherwise
      */
-    public void onClick(View v, int position, boolean isLongClick);
+    void onClick(View v, int position, boolean isLongClick);
 }

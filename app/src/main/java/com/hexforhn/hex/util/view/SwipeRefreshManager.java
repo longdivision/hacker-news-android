@@ -3,10 +3,10 @@ package com.hexforhn.hex.util.view;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 
-public class SwipeRefreshManager implements SwipeRefreshLayout.OnRefreshListener{
+class SwipeRefreshManager implements SwipeRefreshLayout.OnRefreshListener{
     private final static int MINIMUM_SPINNER_VISIBLE_PERIOD_MS = 500;
-    private SwipeRefreshLayout mRefreshLayout;
-    private RefreshHandler mRefreshHandler;
+    private final SwipeRefreshLayout mRefreshLayout;
+    private final RefreshHandler mRefreshHandler;
     private boolean mRefreshing;
 
     public SwipeRefreshManager(SwipeRefreshLayout refreshLayout, RefreshHandler refreshHandler) {
@@ -19,7 +19,7 @@ public class SwipeRefreshManager implements SwipeRefreshLayout.OnRefreshListener
         start();
     }
 
-    public void start() {
+    private void start() {
         mRefreshing = true;
         updateRefreshSpinner();
     }

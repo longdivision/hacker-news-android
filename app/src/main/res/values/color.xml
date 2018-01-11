@@ -33,7 +33,6 @@
     <color name="appBarTextColorDarkTheme">#FFFFFF</color>
     <color name="listingTitleTextDarkTheme">#FFFFFF</color>
     <color name="listDividerDarkTheme">#424242</color>
-    <color name="hiddenCommentsTagDarkTheme">#FF9E80</color>
     <color name="windowBackgroundDarkTheme">@color/md_dark_background</color>
     <color name="drawerSelected">#000000</color>
     <color name="drawerSelectedTextDark">#FFFFFF</color>

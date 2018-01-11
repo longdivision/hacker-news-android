@@ -7,16 +7,16 @@ import java.util.List;
 
 public class Story implements Item {
 
-    private String mId;
-    private String mTitle;
-    private String mUrl;
-    private String mCommentsUrl;
-    private String mUser;
-    private String mDomain;
-    private int mScore;
-    private int mCommentCount;
-    private Date mDate;
-    private List<Comment> mComments;
+    private final String mId;
+    private final String mTitle;
+    private final String mUrl;
+    private final String mCommentsUrl;
+    private final String mUser;
+    private final String mDomain;
+    private final int mScore;
+    private final int mCommentCount;
+    private final Date mDate;
+    private final List<Comment> mComments;
 
     public Story(String id, String title, String url, String commentsUrl, String user, String domain,
                  int score, int commentCount, Date date) {

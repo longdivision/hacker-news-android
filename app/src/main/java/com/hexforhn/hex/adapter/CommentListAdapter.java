@@ -23,7 +23,7 @@ public class CommentListAdapter extends RecyclerView.Adapter<ViewHolder> impleme
 
     private final static int INDENT_SIZE = 5;
     private final Context mContext;
-    private CommentListManager mCommentListManager;
+    private final CommentListManager mCommentListManager;
 
     public CommentListAdapter(Context context, List<CommentViewModel> comments) {
         mContext = context;
@@ -83,8 +83,6 @@ public class CommentListAdapter extends RecyclerView.Adapter<ViewHolder> impleme
     /**
      * The comment body TextView is setup for autolinking. A special handler is used to ensure
      * non-link clicks are captured and bubbled to the parent to simulate a click.
-     *
-     * @param textView
      */
     private void setupClickListenerForTextView(final TextView textView) {
         textView.setOnClickListener(new View.OnClickListener() {
@@ -120,9 +118,8 @@ public class CommentListAdapter extends RecyclerView.Adapter<ViewHolder> impleme
         DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
 
         int indentSize = depth * INDENT_SIZE;
-        int indentSizeScaledForDisplay = Math.round(
+        indentView.getLayoutParams().width = Math.round(
                 TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, indentSize, metrics));
-        indentView.getLayoutParams().width = indentSizeScaledForDisplay;
 
         int[] indentColors = mContext.getResources().getIntArray(R.array.comment);
         int indentColor = indentColors[depth % indentColors.length];

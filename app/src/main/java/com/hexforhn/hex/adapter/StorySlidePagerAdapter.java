@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class StorySlidePagerAdapter extends FragmentStatePagerAdapter {
 
-    ArrayList<Fragment> mFragments;
+    private final ArrayList<Fragment> mFragments;
 
     public StorySlidePagerAdapter(FragmentManager fm, String storyId) {
         super(fm);

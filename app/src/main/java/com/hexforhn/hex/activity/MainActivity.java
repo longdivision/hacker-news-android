@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements HexDrawer.ItemSel
     private static final String ITEM_KEY = "Item";
     private HexDrawer.Item mCurrentItem;
 
-    public static Map<HexDrawer.Item, Integer> itemToToolbarTitle = new HashMap<HexDrawer.Item, Integer>(){{
+    private static final Map<HexDrawer.Item, Integer> itemToToolbarTitle = new HashMap<HexDrawer.Item, Integer>(){{
         put(HexDrawer.Item.FrontPage, R.string.frontPageTitle);
         put(HexDrawer.Item.New, R.string.newTitle);
         put(HexDrawer.Item.Ask, R.string.askTitle);
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements HexDrawer.ItemSel
         put(HexDrawer.Item.About, R.string.aboutTitle);
     }};
 
-    public static Map<HexDrawer.Item, StoryListFragment.Collection> itemToCollection = new HashMap<HexDrawer.Item, StoryListFragment.Collection>(){{
+    private static final Map<HexDrawer.Item, StoryListFragment.Collection> itemToCollection = new HashMap<HexDrawer.Item, StoryListFragment.Collection>(){{
         put(HexDrawer.Item.FrontPage, StoryListFragment.Collection.Top);
         put(HexDrawer.Item.New, StoryListFragment.Collection.New);
         put(HexDrawer.Item.Ask, StoryListFragment.Collection.Ask);
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements HexDrawer.ItemSel
 
     @Override
     public void onItemSelectedHandler(HexDrawer.Item item) {
-        String collection = "";
+        String collection;
 
         switch (item) {
             case Settings:

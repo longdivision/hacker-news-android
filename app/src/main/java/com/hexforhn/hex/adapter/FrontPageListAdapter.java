@@ -17,8 +17,8 @@ import java.util.List;
 
 public class FrontPageListAdapter extends RecyclerView.Adapter<ViewHolder> {
 
-    private List<StoryListItemViewModel> mDataset;
-    private ClickListener mClickListener;
+    private final List<StoryListItemViewModel> mDataset;
+    private final ClickListener mClickListener;
     private Context mContext;
 
     public FrontPageListAdapter(List<StoryListItemViewModel> myDataset, ClickListener clickListener) {

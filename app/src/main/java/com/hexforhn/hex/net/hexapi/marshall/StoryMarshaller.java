@@ -38,7 +38,7 @@ public class StoryMarshaller {
         }
     }
 
-    public static List<Comment> marshallComments(JSONArray rawComments) {
+    private static List<Comment> marshallComments(JSONArray rawComments) {
         List<Comment> comments = new ArrayList<>();
 
         for (int i = 0; i < rawComments.length(); i++) {

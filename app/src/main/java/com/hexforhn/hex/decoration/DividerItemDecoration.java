@@ -13,7 +13,7 @@ import com.hexforhn.hex.R;
  * http://stackoverflow.com/a/27037230/642196
  */
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
-    private Drawable mDivider;
+    private final Drawable mDivider;
 
     public DividerItemDecoration(Context context) {
         mDivider = context.getDrawable(R.drawable.line_divider);
